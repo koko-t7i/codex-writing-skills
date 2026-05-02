@@ -12,29 +12,27 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      - name: Install uv
-        uses: astral-sh/setup-uv@v7
-
-      - name: Install meridian
-        run: |
-          uv tool install meridian-cli
-          echo "$HOME/.local/bin" >> $GITHUB_PATH
-
-      - name: Validate package structure
-        run: meridian mars check
-
-      - name: Validate YAML frontmatter
+      - name: Validate skill structure
         run: |
           error=0
-          for f in agents/*.md skills/*/SKILL.md cw/skills/*/SKILL.md cw/cw-router/SKILL.md; do
-            if [ -f "$f" ]; then
-              if ! head -1 "$f" | grep -q '^---'; then
-                echo "::error file=$f::Missing YAML frontmatter"
-                error=1
-              fi
+          for d in skills/*; do
+            [ -d "$d" ] || continue
+            if [ ! -f "$d/SKILL.md" ]; then
+              echo "::error file=$d::Missing SKILL.md"
+              error=1
+              continue
+            fi
+            if ! head -1 "$d/SKILL.md" | grep -q '^---'; then
+              echo "::error file=$d/SKILL.md::Missing YAML frontmatter"
+              error=1
             fi
           done
           exit $error
 
-      - name: Build Claude.ai skill packages
-        run: python3 scripts/create_skill_zips.py
+      - name: Check Codex-only wording
+        run: |
+          pattern='Clau''de|clau''de|Ma''rs|ma''rs|Meri''dian|meri''dian|\.clau''de|\.meri''dian|Clau''de Code|Clau''de\.ai'
+          if grep -RInE --exclude-dir=.git "$pattern" .; then
+            echo "::error::Found non-Codex runtime references"
+            exit 1
+          fi

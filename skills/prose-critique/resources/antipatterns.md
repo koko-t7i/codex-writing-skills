@@ -58,6 +58,6 @@ Lists of specific words claimed to indicate AI authorship (delve, tapestry, test
 - Model-version dependent — word frequencies shift with each model update
 - Prompt-dependent — style instructions dramatically change vocabulary
 - Genre-confounded — "delve" appears in plenty of human-written academic and fantasy prose
-- Near-random for Claude specifically — word-level heuristics trained on GPT output don't transfer
+- Near-random for some model families — word-level heuristics trained on GPT output don't transfer
 
 These lists are useful as editorial taste preferences ("I don't want my prose to sound like this") but not as evidence that text is AI-generated. If you're using them, be honest that it's a style choice, not a detection method.
