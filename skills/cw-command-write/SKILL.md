@@ -1,31 +1,23 @@
 ---
 name: cw-command-write
-description: Use when the user types or refers to /write, asks for the creative writing write command, wants prose-writing mode, or provides /write with an optional style name or scene request.
+description: Use when the user types /write, asks for prose-writing mode, or provides an optional style name plus a scene or revision request.
 ---
 
 # CW Command: /write
 
-Codex adaptation of the Claude Code `/write [style]` creative writing command.
+Codex command-entry skill for the creative writing workflow.
 
-Use this as an explicit command entrypoint, then apply `prose-writing` and, when a role mode is useful, `cw-agent-writer`.
+## Route
+
+Use `prose-writing` or `cw-agent-writer` depending on whether the user needs direct work or a role-specific workflow.
 
 ## Behavior
 
-- Write narrative fiction prose, not outline notes or critique.
-- Before writing, look for relevant style guides in the current project when files are available.
-- Read applicable style guides, character profiles, lore docs, prior chapters, and scene briefs before drafting.
-- Match discovered project voice and conventions.
-- If a style name is provided and no matching project style guide exists, use general conventions for that style and say that no project-specific guide was found.
-- If the user asks to create a style guide instead of draft prose, use `cw-agent-style-creator`.
+- Write narrative prose, not outline notes or critique.
+- Look for available style guides, character profiles, lore docs, and prior chapters before drafting.
+- If a style name is provided and no project guide exists, use general conventions for that style and say so briefly.
+- If the request is actually style-guide creation, route to `cw-agent-style-creator`.
 
-## Input
+## Input Handling
 
-Treat text after `/write` as either:
-
-- a style name, such as `action-heavy` or `literary`;
-- a scene/chapter request;
-- both, if the wording clearly includes style plus task.
-
-If the user only says `/write`, ask for the scene, chapter, or revision target.
-
-For the original Claude command text, see `references/command.md`.
+Treat text after `/write` as the command argument. If the user provides only the command and the missing target would block useful work, ask one focused question for the missing topic, draft, file, or goal.

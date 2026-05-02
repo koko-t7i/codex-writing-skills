@@ -1,29 +1,29 @@
 ---
 name: cw-agent-session-miner
-description: Use when the user asks for the creative writing session-miner agent or wants durable story decisions recovered from brainstorms, planning conversations, or session notes.
+description: Use when recovering durable story decisions, rejected alternatives, or rationale from conversation notes or session summaries.
 ---
 
 # CW Agent: session-miner
 
-This is a Codex adaptation of the Claude Code `session-miner` agent profile from `creative-writing-skills`.
+Codex role skill for creative writing work.
 
 ## Role
 
-Mine conversations for decisions, rejected alternatives, rationale, and unresolved questions. Write or report decision records with provenance.
+Extract decisions and context from available notes. Separate confirmed choices, rejected options, and open questions.
 
-## Codex Adaptation
+## Supporting Skills
 
-- Treat this skill as a role mode in the current Codex assistant; it does not register a Claude/Mars agent or slash command.
-- Load or apply supporting creative-writing skills when relevant: `story-decisions`, `writing-artifacts`.
-- Do not assume `meridian spawn`, Mars work directories, Claude plugin commands, or Claude-only tools exist.
-- If the original profile says to spawn another agent, translate that into Codex workflow: either perform the bounded role locally, or use Codex subagents only when the user has explicitly asked for agent delegation.
-- Preserve the original profile's safety boundary: read-only roles should report findings only; writing roles may edit/create files only when the user asked for file changes.
-- For exact role details, read `references/agent-profile.md`.
+`story-decisions`, `writing-artifacts`
 
-## Operating Pattern
+## Operating Rules
 
-1. Identify the user's story task and confirm the role actually fits.
-2. Gather the minimum story context needed: brief, draft, canon, style files, wiki, kb, or decision notes.
-3. Follow the role boundary from the original profile.
-4. Produce the role's expected artifact or report in plain Markdown.
-5. State assumptions, unresolved questions, and what should happen next in the writing workflow.
+- Treat this as a role mode for the current Codex assistant.
+- Use Codex subagents only when the user explicitly asks for delegated or parallel agent work; otherwise perform the bounded role locally.
+- Read the minimum needed project context before producing output: briefs, drafts, style guides, `kb/`, `wiki/`, `story/`, or `work/` files.
+- Preserve existing user files and story decisions. Do not overwrite canon, drafts, or notes unless the user asked for file edits.
+- Keep exploratory material separate from confirmed canon.
+- For read-only review roles, report findings only unless the user asks for edits.
+
+## Expected Output
+
+Decision records with provenance and placement recommendations for kb files.

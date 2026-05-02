@@ -1,25 +1,24 @@
 ---
 name: cw-command-critique
-description: Use when the user types or refers to /critique, asks for the creative writing critique command, wants structured feedback on fiction, or provides text/file context for prose, pacing, character, dialogue, plot, or genre critique.
+description: Use when the user types /critique or wants structured feedback on fiction prose, plot, pacing, character, dialogue, or genre fit.
 ---
 
 # CW Command: /critique
 
-Codex adaptation of the Claude Code `/critique` creative writing command.
+Codex command-entry skill for the creative writing workflow.
 
-Use this as an explicit command entrypoint, then apply `prose-critique` and, when a role mode is useful, `cw-agent-critic`.
+## Route
+
+Use `prose-critique` or `cw-agent-critic` depending on whether the user needs direct work or a role-specific workflow.
 
 ## Behavior
 
-- Critique existing story content; do not rewrite unless the user asks.
-- Ask for target audience, goals, desired feedback type, or draft stage only when missing information would materially change the critique.
-- Calibrate feedback to the draft stage: early drafts need structural and intent feedback; late drafts can tolerate line-level precision.
-- Consider plot, character, pacing, dialogue, prose quality, continuity, and genre fit.
-- Use structured findings with severity and concrete evidence.
-- Use web research only when current genre conventions or external craft references would materially improve the answer.
+- Critique existing story content; do not rewrite unless asked.
+- Calibrate feedback to draft stage and requested focus.
+- Use concrete textual evidence and severity.
+- Cover reader impact, not just abstract craft rules.
+- Ask for the text or focus only if it is missing.
 
-## Input
+## Input Handling
 
-Treat text after `/critique` as pasted prose, a file target, or the requested critique focus. If the user only says `/critique`, ask for the text or file and desired focus.
-
-For the original Claude command text, see `references/command.md`.
+Treat text after `/critique` as the command argument. If the user provides only the command and the missing target would block useful work, ask one focused question for the missing topic, draft, file, or goal.

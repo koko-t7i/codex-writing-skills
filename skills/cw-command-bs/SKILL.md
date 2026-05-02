@@ -1,26 +1,25 @@
 ---
 name: cw-command-bs
-description: Use when the user types or refers to /bs, asks for the creative writing brainstorm command, or wants explicit brainstorming mode for story, plot, character, worldbuilding, chapter, or scene ideas.
+description: Use when the user types /bs, asks for brainstorm mode, or wants to explore story ideas before committing to canon.
 ---
 
 # CW Command: /bs
 
-Codex adaptation of the Claude Code `/bs` creative writing command.
+Codex command-entry skill for the creative writing workflow.
 
-Use this as an explicit command entrypoint, then apply `brainstorming` and, when a role mode is useful, `cw-agent-brainstormer`.
+## Route
+
+Use `brainstorming` or `cw-agent-brainstormer` depending on whether the user needs direct work or a role-specific workflow.
 
 ## Behavior
 
-- Explore story ideas without committing them as canon.
-- Capture only what the user states as fact.
+- Explore possibilities without treating suggestions as canon.
+- Capture user-stated facts plainly.
 - Mark assistant suggestions with `<AI>...</AI>`.
-- Mark author-only secrets, twists, or spoiler material with `<hidden>...</hidden>`.
-- Preserve vagueness with `[TBD]` instead of filling gaps.
-- Keep notes skeletal enough that the user still has creative room.
-- After capturing notes, continue the conversation to develop options.
+- Mark author-only secrets or spoiler material with `<hidden>...</hidden>`.
+- Preserve uncertainty with `[TBD]`.
+- End with useful next questions or option clusters.
 
-## Input
+## Input Handling
 
-Treat text after `/bs` as the brainstorming prompt. If the user only says `/bs`, ask what topic, scene, character, or story problem they want to explore.
-
-For the original Claude command text, see `references/command.md`.
+Treat text after `/bs` as the command argument. If the user provides only the command and the missing target would block useful work, ask one focused question for the missing topic, draft, file, or goal.

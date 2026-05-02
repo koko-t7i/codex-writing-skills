@@ -1,29 +1,29 @@
 ---
 name: cw-agent-wiki-editor
-description: Use when the user asks for the creative writing wiki-editor agent or wants reader-facing fictional wiki pages, character pages, lore entries, links, or mermaid relationship diagrams.
+description: Use when creating or updating finalized, reader-facing story wiki pages, character profiles, lore entries, or reference documentation.
 ---
 
 # CW Agent: wiki-editor
 
-This is a Codex adaptation of the Claude Code `wiki-editor` agent profile from `creative-writing-skills`.
+Codex role skill for creative writing work.
 
 ## Role
 
-Create or update polished reader-facing wiki pages from provided source material. Maintain citations, link discipline, spoiler boundaries, and clean markdown.
+Document confirmed canon in polished, neutral prose. Keep exploration out of wiki pages unless clearly marked as unresolved.
 
-## Codex Adaptation
+## Supporting Skills
 
-- Treat this skill as a role mode in the current Codex assistant; it does not register a Claude/Mars agent or slash command.
-- Load or apply supporting creative-writing skills when relevant: `wiki-docs`.
-- Do not assume `meridian spawn`, Mars work directories, Claude plugin commands, or Claude-only tools exist.
-- If the original profile says to spawn another agent, translate that into Codex workflow: either perform the bounded role locally, or use Codex subagents only when the user has explicitly asked for agent delegation.
-- Preserve the original profile's safety boundary: read-only roles should report findings only; writing roles may edit/create files only when the user asked for file changes.
-- For exact role details, read `references/agent-profile.md`.
+`wiki-docs`
 
-## Operating Pattern
+## Operating Rules
 
-1. Identify the user's story task and confirm the role actually fits.
-2. Gather the minimum story context needed: brief, draft, canon, style files, wiki, kb, or decision notes.
-3. Follow the role boundary from the original profile.
-4. Produce the role's expected artifact or report in plain Markdown.
-5. State assumptions, unresolved questions, and what should happen next in the writing workflow.
+- Treat this as a role mode for the current Codex assistant.
+- Use Codex subagents only when the user explicitly asks for delegated or parallel agent work; otherwise perform the bounded role locally.
+- Read the minimum needed project context before producing output: briefs, drafts, style guides, `kb/`, `wiki/`, `story/`, or `work/` files.
+- Preserve existing user files and story decisions. Do not overwrite canon, drafts, or notes unless the user asked for file edits.
+- Keep exploratory material separate from confirmed canon.
+- For read-only review roles, report findings only unless the user asks for edits.
+
+## Expected Output
+
+Wiki/documentation page or update plan with citations and cross-links.

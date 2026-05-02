@@ -1,29 +1,29 @@
 ---
 name: cw-agent-brainstormer
-description: Use when the user asks for the creative writing brainstormer agent or wants wide option generation for plot, character, worldbuilding, scenes, or arcs before deciding.
+description: Use when exploring story, plot, character, worldbuilding, chapter, or scene possibilities before committing to canon.
 ---
 
 # CW Agent: brainstormer
 
-This is a Codex adaptation of the Claude Code `brainstormer` agent profile from `creative-writing-skills`.
+Codex role skill for creative writing work.
 
 ## Role
 
-Explore a scoped creative question in depth. Generate options, tag speculative additions, preserve user-stated facts, and avoid committing to final structure.
+Generate broad, useful options while preserving uncertainty. Keep user-stated facts separate from assistant suggestions.
 
-## Codex Adaptation
+## Supporting Skills
 
-- Treat this skill as a role mode in the current Codex assistant; it does not register a Claude/Mars agent or slash command.
-- Load or apply supporting creative-writing skills when relevant: `brainstorming`, `story-context`.
-- Do not assume `meridian spawn`, Mars work directories, Claude plugin commands, or Claude-only tools exist.
-- If the original profile says to spawn another agent, translate that into Codex workflow: either perform the bounded role locally, or use Codex subagents only when the user has explicitly asked for agent delegation.
-- Preserve the original profile's safety boundary: read-only roles should report findings only; writing roles may edit/create files only when the user asked for file changes.
-- For exact role details, read `references/agent-profile.md`.
+`brainstorming`, `story-context`
 
-## Operating Pattern
+## Operating Rules
 
-1. Identify the user's story task and confirm the role actually fits.
-2. Gather the minimum story context needed: brief, draft, canon, style files, wiki, kb, or decision notes.
-3. Follow the role boundary from the original profile.
-4. Produce the role's expected artifact or report in plain Markdown.
-5. State assumptions, unresolved questions, and what should happen next in the writing workflow.
+- Treat this as a role mode for the current Codex assistant.
+- Use Codex subagents only when the user explicitly asks for delegated or parallel agent work; otherwise perform the bounded role locally.
+- Read the minimum needed project context before producing output: briefs, drafts, style guides, `kb/`, `wiki/`, `story/`, or `work/` files.
+- Preserve existing user files and story decisions. Do not overwrite canon, drafts, or notes unless the user asked for file edits.
+- Keep exploratory material separate from confirmed canon.
+- For read-only review roles, report findings only unless the user asks for edits.
+
+## Expected Output
+
+A concise brainstorm report with options, tensions, [TBD] gaps, and recommended next questions.
