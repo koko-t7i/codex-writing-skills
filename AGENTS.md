@@ -8,7 +8,7 @@ This is a Codex-native creative writing skills repository. Every installable ski
 
 ## Skill Types
 
-- `cw-command-*`: command-entry skills for explicit writing workflows such as `/bs`, `/write`, `/wiki`, and `/critique`.
+- `cw-*`: workflow skills for explicit writing workflows such as brainstorming, writing, wiki documentation, and critique.
 - `cw-agent-*`: role skills that make Codex behave like a focused writing specialist such as writer, critic, outliner, or wiki editor.
 - Core skills: reusable writing knowledge such as `prose-writing`, `prose-critique`, `story-context`, and `writing-principles`.
 

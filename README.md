@@ -14,10 +14,10 @@ For a smaller install, start with:
 
 ```bash
 cp -a skills/cw-router \
-  skills/cw-command-bs \
-  skills/cw-command-write \
-  skills/cw-command-wiki \
-  skills/cw-command-critique \
+  skills/cw-brainstorm \
+  skills/cw-write \
+  skills/cw-wiki \
+  skills/cw-critique \
   skills/prose-writing \
   skills/brainstorming \
   skills/prose-critique \
@@ -27,19 +27,18 @@ cp -a skills/cw-router \
 
 ## Quick Start
 
-Use natural language or the command-entry skills:
+Use the workflow skills directly:
 
 ```text
-/bs Explore five core premises for a cultivation web novel.
-/write action-heavy Draft the scene where the protagonist escapes the sect patrol.
-/wiki Create a finalized page for the Qi Condensation realm.
-/critique Review this chapter for pacing, protagonist motivation, and hook strength.
+Use cw-brainstorm to explore five core premises for a cultivation web novel.
+Use cw-write in an action-heavy style to draft the scene where the protagonist escapes the sect patrol.
+Use cw-wiki to create a finalized page for the Qi Condensation realm.
+Use cw-critique to review this chapter for pacing, protagonist motivation, and hook strength.
 ```
 
-If your Codex client treats slash-prefixed text specially, invoke the skills explicitly:
+Role skills are useful when you want a narrower specialist stance:
 
 ```text
-Use cw-command-bs to brainstorm a magic system.
 Use cw-agent-writer to draft chapter one in a fast web-novel style.
 Use cw-agent-critic to critique this scene for voice and continuity.
 ```
@@ -48,7 +47,7 @@ Use cw-agent-critic to critique this scene for voice and continuity.
 
 | Group | Skills |
 |---|---|
-| Router and commands | `cw-router`, `cw-command-bs`, `cw-command-write`, `cw-command-wiki`, `cw-command-critique` |
+| Router and workflows | `cw-router`, `cw-brainstorm`, `cw-write`, `cw-wiki`, `cw-critique` |
 | Writing roles | `cw-agent-story-orchestrator`, `cw-agent-draft-orchestrator`, `cw-agent-writer`, `cw-agent-critic`, `cw-agent-reader-sim` |
 | Planning roles | `cw-agent-brainstormer`, `cw-agent-outliner`, `cw-agent-character-sim`, `cw-agent-researcher`, `cw-agent-style-creator` |
 | Knowledge roles | `cw-agent-knowledge-orchestrator`, `cw-agent-wiki-editor`, `cw-agent-continuity-checker`, `cw-agent-chronicler`, `cw-agent-session-miner`, `cw-agent-graph-maintainer`, `cw-agent-explorer` |
