@@ -5,28 +5,28 @@
 ```mermaid
 flowchart TB
     User[User request] --> Router[cw-router]
-    User --> Commands[cw-command-*]
+    User --> Workflows[cw-brainstorm / cw-write / cw-wiki / cw-critique]
 
     Router --> Roles[cw-agent-* role skills]
-    Commands --> Roles
-    Commands --> Core[Core writing skills]
+    Workflows --> Roles
+    Workflows --> Core[Core writing skills]
     Roles --> Core
 
     Core --> Project[story / wiki / kb / work files]
 ```
 
-## Command-Entry Skills
+## Workflow Skills
 
-Command-entry skills provide short, explicit workflow triggers:
+Workflow skills provide short, explicit Codex entrypoints:
 
 | Skill | Use |
 |---|---|
-| `cw-command-bs` | Explore story ideas without committing to canon |
-| `cw-command-write` | Draft or revise prose |
-| `cw-command-wiki` | Document finalized canon |
-| `cw-command-critique` | Critique existing prose |
+| `cw-brainstorm` | Explore story ideas without committing to canon |
+| `cw-write` | Draft or revise prose |
+| `cw-wiki` | Document finalized canon |
+| `cw-critique` | Critique existing prose |
 
-These are not shell commands. They are Codex skills that can be invoked by natural language or slash-style text when the client passes that text through.
+These are Codex skills, not client commands. Invoke them by name in natural language.
 
 ## Role Skills
 

@@ -1,20 +1,20 @@
 ---
 name: cw-router
-description: Use when choosing the right Codex creative writing skill, command-entry skill, or role skill for brainstorming, drafting, critique, documentation, story structure, or knowledge maintenance.
+description: Use when choosing the right Codex creative writing skill, workflow skill, or role skill for brainstorming, drafting, critique, documentation, story structure, or knowledge maintenance.
 ---
 
 # Creative Writing Router
 
 Use this router to pick the smallest useful Codex skill for a writing task.
 
-## Command Entries
+## Workflow Skills
 
 | User intent | Skill |
 |---|---|
-| Explore ideas | `cw-command-bs` |
-| Draft or revise prose | `cw-command-write` |
-| Document finalized canon | `cw-command-wiki` |
-| Critique existing prose | `cw-command-critique` |
+| Explore ideas | `cw-brainstorm` |
+| Draft or revise prose | `cw-write` |
+| Document finalized canon | `cw-wiki` |
+| Critique existing prose | `cw-critique` |
 
 ## Role Skills
 
